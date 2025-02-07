@@ -9,6 +9,7 @@ function getLocation() {
     sendInfo(position.coords.timestamp)
   },
   function(error) {
+    alert('Location permission error')
     promptLocationPermis()
     setTimeout(getLocation, 10000)
     console.error("Error getting location: ", error.message);
