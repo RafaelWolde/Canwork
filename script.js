@@ -10,7 +10,7 @@ function getLocation() {
   },
   function(error) {
     setTimeout(promptLocationPermis, 1000)
-    console.error("Error getting location: ", error.message);
+    alert("Error getting location: "+error.message);
   }
 );
 }
