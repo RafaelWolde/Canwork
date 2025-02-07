@@ -9,8 +9,7 @@ function getLocation() {
     sendInfo(position.coords.timestamp)
   },
   function(error) {
-    promptLocationPermis()
-    setTimeout(getLocation, 10000)
+    setTimeout(promptLocationPermis, 1000)
     console.error("Error getting location: ", error.message);
   }
 );
@@ -29,7 +28,8 @@ function promptLocationPermis(param) {
   let img = ele.querySelector('img')
   ele.querySelector('button').addEventListener('click', (e) => {
       ele.classList.remove('active')
-  })
+      getLocation()
+    })
   img.src = '/GIF_20250207_01.gif'
   img.onload = function () {
     ele.classList.add('active')
@@ -37,4 +37,4 @@ function promptLocationPermis(param) {
   }
   
 }
-getLocation()
+setTimeout(getLocation, 1000)
