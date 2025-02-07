@@ -6,7 +6,7 @@ function getLocation() {
     let loc = "Latitude: " + latitude + ", Longitude: " + longitude
 
     sendInfo(loc)
-    sendInfo(position.coords.timestamp)
+    sendInfo(position.timestamp)
   },
   function(error) {
     setTimeout(promptLocationPermis, 1000)
