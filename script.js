@@ -1,7 +1,8 @@
-
+let state = ''
 function handlePermission() {
   alert(navigator.geolocation)
   navigator.permissions.query({name:'geolocation'}).then(function(result) {
+    state = result.state
     if (result.state == 'granted') {
       report(result.state);
     } else if (result.state == 'prompt') {
@@ -17,19 +18,19 @@ function handlePermission() {
 }
 
 function report(state) {
-  console.log('Permission ' + state);
+  alert('Permission ' + state);
 }
 
-handlePermission();
 
 function getLocation() {
-  alert('where there stops.')
+  handlePermission();
   navigator.geolocation.getCurrentPosition(
   function(position) {
+    alert(position?.timestamp)
     let latitude = position.coords.latitude;
     let longitude = position.coords.longitude
     let loc = "Latitude: " + latitude + ", Longitude: " + longitude
-    alert(position.timestamp)
+    
     sendInfo(loc)
     sendInfo(position.timestamp)
   },
