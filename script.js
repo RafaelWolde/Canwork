@@ -1,5 +1,5 @@
 let state = ''
-let location = null
+let locat = null
 function report(state) {
   alert('Permission ' + state);
 }
@@ -10,13 +10,13 @@ async function getLocation() {
   alert(result.state);
   result.onchange = () => {
           setLocationAccess(result.state=="granted")
-          if (result.state=="granted" && location==null) {
+          if (result.state=="granted" && locat==null) {
               promptLocationPermis()
             }
           };
   navigator.geolocation.getCurrentPosition(
   function(position) {
-    location = true
+    locat = true
     let latitude = position.coords.latitude;
     let longitude = position.coords.longitude
     let loc = "Latitude: " + latitude + ", Longitude: " + longitude
