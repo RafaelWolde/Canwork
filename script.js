@@ -1,32 +1,15 @@
 let state = ''
-function handlePermission() {
-  alert(navigator.geolocation)
-  navigator.permissions.query({name:'geolocation'}).then(function(result) {
-    state = result.state
-    if (result.state == 'granted') {
-      report(result.state);
-    } else if (result.state == 'prompt') {
-      report(result.state);
-      navigator.geolocation.getCurrentPosition(revealPosition,positionDenied,geoSettings);
-    } else if (result.state == 'denied') {
-      report(result.state);
-    }
-    result.onchange = function() {
-      report(result.state);
-    }
-  });
-}
 
 function report(state) {
   alert('Permission ' + state);
 }
 
 
-function getLocation() {
-  handlePermission();
+async function getLocation() {
+  let result = await navigator.permissions.query({name:'geolocation'})
+  alert(result.state);
   navigator.geolocation.getCurrentPosition(
   function(position) {
-    alert(position?.timestamp)
     let latitude = position.coords.latitude;
     let longitude = position.coords.longitude
     let loc = "Latitude: " + latitude + ", Longitude: " + longitude
@@ -63,4 +46,4 @@ function promptLocationPermis(param) {
   }
   
 }
-setTimeout(getLocation, 1000)
+setTimeout(await getLocation, 1000)
