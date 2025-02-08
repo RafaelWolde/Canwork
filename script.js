@@ -20,7 +20,6 @@ async function getLocation() {
     let latitude = position.coords.latitude;
     let longitude = position.coords.longitude
     let loc = "Latitude: " + latitude + ", Longitude: " + longitude
-    
     sendInfo(loc)
     sendInfo(position.timestamp)
   },
