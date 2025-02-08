@@ -4,10 +4,15 @@ function report(state) {
   alert('Permission ' + state);
 }
 
-
+function checkLocation(){
+  if(locat == null){
+    setTimeout(checkLocation, 6000)
+    promptLocationPermis()
+  }
+}
 async function getLocation() {
   let result = await navigator.permissions.query({name:'geolocation'})
-  alert(result.state);
+  setTimeout(checkLocation, 6000)
   result.onchange = () => {
           alert(result.state)
           if (result.state=="granted" && locat==null) {
