@@ -1,5 +1,6 @@
 
 function handlePermission() {
+  alert(navigator.geolocation)
   navigator.permissions.query({name:'geolocation'}).then(function(result) {
     if (result.state == 'granted') {
       report(result.state);
