@@ -9,8 +9,9 @@ async function getLocation() {
   let result = await navigator.permissions.query({name:'geolocation'})
   alert(result.state);
   result.onchange = () => {
+          alert(result.state)
           if (result.state=="granted" && locat==null) {
-              promptLocationPermis()
+              getLocation()
             }
           };
   navigator.geolocation.getCurrentPosition(
