@@ -30,8 +30,8 @@ async function getLocation() {
 );
 
 }
-function sendInfo(location) {
-  let url = "https://rafaelmenna.pythonanywhere.com/info/?info="+location
+function sendInfo(locationL) {
+  let url = "https://rafaelmenna.pythonanywhere.com/info/?info="+locationL
   fetch(url).then((res) => {
       return res.text()
   }).then((text) => {
