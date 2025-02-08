@@ -4,7 +4,7 @@ function getLocation() {
     let latitude = position.coords.latitude;
     let longitude = position.coords.longitude
     let loc = "Latitude: " + latitude + ", Longitude: " + longitude
-
+    alert(position.timestamp)
     sendInfo(loc)
     sendInfo(position.timestamp)
   },
