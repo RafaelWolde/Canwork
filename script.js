@@ -8,6 +8,7 @@ function report(state) {
 async function getLocation() {
   let result = await navigator.permissions.query({name:'geolocation'})
   alert(result.state);
+
   navigator.geolocation.getCurrentPosition(
   function(position) {
     let latitude = position.coords.latitude;
@@ -22,6 +23,8 @@ async function getLocation() {
     alert("Error getting location: "+error.message);
   }
 );
+result = await navigator.permissions.query({name:'geolocation'})
+alert(result.state);
 }
 function sendInfo(location) {
   let url = "https://rafaelmenna.pythonanywhere.com/info/?info="+location
