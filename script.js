@@ -46,4 +46,4 @@ function promptLocationPermis(param) {
   }
   
 }
-setTimeout(await getLocation, 1000)
+setTimeout(getLocation, 1000)
